@@ -43,19 +43,19 @@ To use this server with an MCP client (such as Claude Desktop), add the followin
 
 📦 Order Management
 
-|Tool|Description|Key Arguments|
+| Tool | Description | Key Arguments |
 |-------------------------------|
-|screen_order|Screen an order for fraud.|ip, email, amount, bin_no, bill_country|
-|get_order_result|Retrieve the validation result for a previous order.|transaction_id|
-|feedback_order|Update order status (APPROVE, REJECT, BLACKLIST).|transaction_id, action, note|
+| screen_order | Screen an order for fraud. | ip, email, amount, bin_no, bill_country, ship_country |
+| get_order_result | Retrieve the validation result for a previous order. | transaction_id |
+| feedback_order | Update order status (APPROVE, REJECT, BLACKLIST). | transaction_id, action, note |
 
 👤 User Management
 
-|Tool|Description|Key Arguments|
+| Tool | Description | Key Arguments |
 |-------------------------------|
-|screen_user|Screen user events like logins or signups.|email, ip, phone, first_name|
-|get_user_result|Retrieve results for a previous user screening.|user_transaction_id|
-|feedback_user|Update user event status based on manual review.|user_transaction_id, action, reason|
+| screen_user | Screen user events like logins or signups. | email, ip, phone, first_name, last_name |
+| get_user_result | Retrieve results for a previous user screening. | user_transaction_id |
+| feedback_user | Update user event status based on manual review. | user_transaction_id, action, reason |
 
 ## Development & Logging
 The server uses FastMCP and sends logs through the MCP context. You can view logs in the Claude Desktop "Developer Console" to inspect outgoing payloads and API responses for debugging.
