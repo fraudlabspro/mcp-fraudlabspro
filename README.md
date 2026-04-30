@@ -23,8 +23,8 @@ pip install mcp httpx
 ```
 2. Configuration
 To use this server with an MCP client (such as Claude Desktop), add the following entry to your configuration file:
-- macOS: ~/Library/Application Support/Claude/claude_desktop_config.json
-- Windows: %APPDATA%\Claude\claude_desktop_config.json
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
