@@ -1,0 +1,10 @@
+[project]
+name = "fraudlabspro"
+version = "1.0.0"
+description = "Fraud Prevention MCP server using FraudLabs Pro API."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.27.0",
+]

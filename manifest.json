@@ -1,0 +1,78 @@
+{
+  "dxt_version": "0.1",
+  "name": "fraudlabspro",
+  "display_name": "FraudLabs Pro MCP Server",
+  "version": "1.0.0",
+  "description": "Fraud Prevention MCP server using FraudLabs Pro API.",
+  "long_description": "This is a simple Model Context Protocol (MCP) server implementation for FraudLabs Pro API. It will return the validation result for an order or user transaction, and also helps merchant to update the status for the order or user transaction.",
+  "keywords": ["domain", "whois", "domain WHOIS", "python", "registrar", "registrant"],
+  "license": "MIT",
+  "author": {
+    "name": "FraudLabs Pro",
+    "email": "support@fraudlabspro.com",
+    "url": "https://github.com/fraudlabspro"
+  },
+  "homepage": "https://github.com/fraudlabspro/mcp-fraudlabspro",
+  "icon": "icon.png",
+  "screenshots": [
+    "example.png"
+  ],
+  "server": {
+    "type": "python",
+    "entry_point": "src/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+            "--directory",
+            "${__dirname}/src",
+            "run",
+            "server.py"
+          ],
+      "env": {
+        "FRAUDLABSPRO_API_KEY": "${user_config.fraudlabsproapi_key}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "get_order_result",
+      "description": "Retrieve an existing order transaction from FraudLabs Pro fraud detection system."
+    },
+    {
+      "name": "feedback_order",
+      "description": "Update status of a transaction from pending-manual-review to APPROVE, REJECT or REJECT_BLACKLIST."
+    },
+    {
+      "name": "screen_order",
+      "description": "Screen an order transaction for fraud."
+    },
+    {
+      "name": "get_user_result",
+      "description": "Retrieve an existing transaction from FraudLabs Pro fraud detection system."
+    },
+    {
+      "name": "screen_user",
+      "description": "Screen a user transaction (e.g. login, registration) for fraud."
+    },
+    {
+      "name": "feedback_user",
+      "description": "Update status of a transaction from pending-manual-review to APPROVE, REJECT or REJECT_BLACKLIST."
+    }
+  ],
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "python": ">=3.8,<4.0"
+    }
+  },
+  "user_config": {
+    "fraudlabsproapi_key": {
+      "type": "string",
+      "title": "FraudLabs Pro API Key",
+      "description": "Your FraudLabs Pro API key.",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}
