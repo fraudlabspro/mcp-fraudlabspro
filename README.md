@@ -26,7 +26,8 @@ To use this server with an MCP client (such as Claude Desktop), add the followin
 - macOS: ~/Library/Application Support/Claude/claude_desktop_config.json
 - Windows: %APPDATA%\Claude\claude_desktop_config.json
 
-```json{
+```json
+{
   "mcpServers": {
     "fraudlabspro": {
       "command": "python3",
