@@ -20,7 +20,7 @@ An MCP-compliant server that integrates the FraudLabs Pro fraud detection system
 1. Install Dependencies
 Ensure you have the required libraries installed in your environment:
 ```bash
-pip install mcp httpx
+pip install mcp httpx uv
 ```
 2. Configuration
 To use this server with an MCP client (such as Claude Desktop), add the following entry to your configuration file:
