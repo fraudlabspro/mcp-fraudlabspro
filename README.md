@@ -1,4 +1,5 @@
 # FraudLabs Pro MCP Server
+[![mcp-fraudlabspro MCP server](https://glama.ai/mcp/servers/fraudlabspro/mcp-fraudlabspro/badges/score.svg)](https://glama.ai/mcp/servers/fraudlabspro/mcp-fraudlabspro)
 
 An MCP-compliant server that integrates the FraudLabs Pro fraud detection system into AI assistants like Claude Desktop. This server enables real-time screening of order transactions and user-related events (like logins or registrations) to identify and prevent fraudulent activities.
 
@@ -30,8 +31,13 @@ To use this server with an MCP client (such as Claude Desktop), add the followin
 {
   "mcpServers": {
     "fraudlabspro": {
-      "command": "python3",
-      "args": ["/absolute/path/to/the/src/server.py"],
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/path/to/ip2locationio/src",
+        "run",
+        "server.py"
+      ],
       "env": {
         "FRAUDLABSPRO_API_KEY": "YOUR_API_KEY_HERE"
       }
