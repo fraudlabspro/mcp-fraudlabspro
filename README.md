@@ -31,12 +31,9 @@ To use this server with an MCP client (such as Claude Desktop), add the followin
 {
   "mcpServers": {
     "fraudlabspro": {
-      "command": "uv",
+      "command": "uvx",
       "args": [
-        "--directory",
-        "/path/to/ip2locationio/src",
-        "run",
-        "server.py"
+        "mcp-fraudlabspro"
       ],
       "env": {
         "FRAUDLABSPRO_API_KEY": "YOUR_API_KEY_HERE"

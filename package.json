@@ -1,0 +1,23 @@
+{
+  "name": "mcp-fraudlabspro",
+  "version": "1.1.0",
+  "description": "Fraud Prevention MCP server using FraudLabs Pro API.",
+  "license": "MIT",
+  "author": {
+    "name": "FraudLabs Pro",
+    "email": "support@fraudlabspro.com",
+    "url": "https://github.com/fraudlabspro"
+  },
+  "homepage": "https://github.com/fraudlabspro/mcp-fraudlabspro",
+  "keywords": [
+    "fraud",
+    "fraud prevention",
+    "ATO",
+    "python",
+    "user login",
+    "user registration"
+  ],
+  "scripts": {
+    "start": "uv --directory ./src run server.py"
+  }
+}

@@ -1,11 +1,11 @@
 {
   "dxt_version": "0.1",
-  "name": "fraudlabspro",
+  "name": "mcp-fraudlabspro",
   "display_name": "FraudLabs Pro MCP Server",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Fraud Prevention MCP server using FraudLabs Pro API.",
   "long_description": "This is a simple Model Context Protocol (MCP) server implementation for FraudLabs Pro API. It will return the validation result for an order or user transaction, and also helps merchant to update the status for the order or user transaction.",
-  "keywords": ["domain", "whois", "domain WHOIS", "python", "registrar", "registrant"],
+  "keywords": ["fraud", "fraud prevention", "ATO", "python", "user login", "user registration"],
   "license": "MIT",
   "author": {
     "name": "FraudLabs Pro",
