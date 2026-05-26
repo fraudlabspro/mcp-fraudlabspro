@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.fraudlabspro/mcp-fraudlabspro",
+  "description": "Fraud Prevention MCP server using FraudLabs Pro API.",
+  "repository": {
+    "url": "https://github.com/fraudlabspro/mcp-fraudlabspro",
+    "source": "github"
+  },
+  "version": "1.1.1",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "mcp-fraudlabspro",
+      "version": "1.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "Your FraudLabs Pro API key.",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "FRAUDLABSPRO_API_KEY"
+        }
+      ]
+    }
+  ]
+}

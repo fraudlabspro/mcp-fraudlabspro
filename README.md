@@ -69,3 +69,5 @@ Common Error: If you receive "An API key is needed," ensure the `FRAUDLABSPRO_AP
 ## License
 
 See the LICENSE file.
+
+<!-- mcp-name: io.github.fraudlabspro/mcp-fraudlabspro -->
