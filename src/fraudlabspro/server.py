@@ -5,10 +5,20 @@ import json
 
 from urllib.parse import urljoin
 from typing import Any, Dict, Optional
-from mcp.server.fastmcp import FastMCP, Context
+# from mcp.server.fastmcp import FastMCP, Context
 
 # Initialize FastMCP server
-mcp = FastMCP("fraudlabspro")
+# mcp = FastMCP("fraudlabspro")
+
+# MCP SDK compatibility (v1 and v2):
+# v2 renamed FastMCP -> MCPServer and moved it (and Context) to mcp.server.mcpserver.
+try:
+    from mcp.server.mcpserver import MCPServer, Context  # MCP Python SDK v2
+except ImportError:
+    from mcp.server.fastmcp import FastMCP as MCPServer, Context  # MCP Python SDK v1
+
+# Initialize MCP server
+mcp = MCPServer("fraudlabspro")
 
 # Constants
 FLP_API_BASE = "https://api.fraudlabspro.com/v2/"
@@ -87,11 +97,6 @@ async def get_order_result(transaction_id: str, ctx: Context) -> Dict[str, Any] 
     else:
         return(f"An API key is needed.")
     
-    await ctx.session.send_log_message(
-        level="info",
-        data=f"[fraudlabspro] payload for order/result: '{params}'"
-    )
-    
     order_result = await make_request(urljoin(FLP_API_BASE, 'order/result'), params)
     return order_result if order_result else f"Unable to fetch result for Transaction id {transaction_id}."
 
@@ -121,11 +126,6 @@ async def feedback_order(
         data["key"] = api_key
     else:
         return(f"An API key is needed.")
-    
-    await ctx.session.send_log_message(
-        level="info",
-        data=f"[fraudlabspro] order/feedback payload: '{data}'"
-    )
     
     screen_result = await make_request_post(urljoin(FLP_API_BASE, 'order/feedback'), data)
     return screen_result if screen_result else "Unable to complete order feedback."
@@ -210,11 +210,6 @@ async def screen_order(
     else:
         return(f"An API key is needed.")
     
-    await ctx.session.send_log_message(
-        level="info",
-        data=f"[fraudlabspro] order/screen payload: '{data}'"
-    )
-    
     screen_result = await make_request_post(urljoin(FLP_API_BASE, 'order/screen'), data)
     return screen_result if screen_result else "Unable to complete order screening."
 
@@ -255,11 +250,6 @@ async def get_user_result(user_transaction_id: str, ctx: Context) -> Dict[str, A
     else:
         return(f"An API key is needed.")
     
-    await ctx.session.send_log_message(
-        level="info",
-        data=f"[fraudlabspro] payload: '{params}'"
-    )
-    
     user_result = await make_request(urljoin(FLP_API_BASE, 'user/result'), params)
     return user_result if user_result else f"Unable to fetch result for Transaction id {user_transaction_id}."
 
@@ -297,11 +287,6 @@ async def screen_user(
     else:
         return(f"An API key is needed.")
     
-    await ctx.session.send_log_message(
-        level="info",
-        data=f"[fraudlabspro] user/screen payload: '{data}'"
-    )
-    
     screen_result = await make_request_post(urljoin(FLP_API_BASE, 'user/screen'), data)
     return screen_result if screen_result else "Unable to complete user screening."
 
@@ -330,11 +315,6 @@ async def feedback_user(
         data["key"] = api_key
     else:
         return(f"An API key is needed.")
-    
-    await ctx.session.send_log_message(
-        level="info",
-        data=f"[fraudlabspro] user/feedback payload: '{data}'"
-    )
     
     screen_result = await make_request_post(urljoin(FLP_API_BASE, 'user/feedback'), data)
     return screen_result if screen_result else "Unable to complete user feedback."
