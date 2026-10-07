@@ -14,7 +14,7 @@ An MCP-compliant server that integrates the FraudLabs Pro fraud detection system
 
 ## Prerequisites
 - Python 3.10+ installed.
-- FraudLabs Pro API Key: You can obtain a free or paid API key at [FraudLabs Pro](https://www.fraudlabspro.com/pricing).
+- FraudLabs Pro API Key: Sign up for a Free Micro Plan API Key at [FraudLabs Pro](https://www.fraudlabspro.com/checkout-micro).
 
 ## Installation
 1. Install Dependencies
