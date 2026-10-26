@@ -13,10 +13,69 @@ An MCP-compliant server that integrates the FraudLabs Pro fraud detection system
 - Feedback Loop: Approve, Reject, or Blacklist transactions directly through the AI interface to improve the detection engine.
 
 ## Prerequisites
-- Python 3.10+ installed.
+- Python 3.10+ installed (only needed for the local MCP server).
 - FraudLabs Pro API Key: Sign up for a Free Micro Plan API Key at [FraudLabs Pro](https://www.fraudlabspro.com/checkout-micro).
 
 ## Installation
+
+There are two ways to use this MCP server:
+
+- **Cloud-hosted MCP server**: Connect directly to the hosted FraudLabs Pro MCP server. Nothing needs to be installed locally.
+- **Local MCP server**: Download and run the server on your own machine.
+
+### Option 1: Cloud-hosted MCP server
+
+Use this if you want to connect directly to the hosted server.
+
+#### Method A: Direct HTTP connection
+
+Use this if your MCP client supports remote servers over HTTP. No Node.js or `npx` is needed.
+
+```json
+{
+  "mcpServers": {
+    "fraudlabspro": {
+      "type": "http",
+      "url": "https://mcp.fraudlabspro.com/",
+      "headers": {
+        "X-API-Key": "YOUR_API_KEY_HERE"
+      }
+    }
+  }
+}
+```
+
+If your client is configured from the command line, such as Claude Code, you can add the server with:
+
+```bash
+claude mcp add --transport http fraudlabspro https://mcp.fraudlabspro.com/ --header "X-API-Key: YOUR_API_KEY_HERE"
+```
+
+#### Method B: Connection through `npx`
+
+Use this if your MCP client only supports local (stdio) servers. The `mcp-remote` package runs locally and forwards requests to the hosted server. Node.js is required.
+
+```json
+{
+  "mcpServers": {
+    "fraudlabspro": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@latest",
+        "https://mcp.fraudlabspro.com/",
+        "--header",
+        "X-API-Key:YOUR_API_KEY_HERE"
+      ]
+    }
+  }
+}
+```
+
+Restart your MCP client after saving the changes, and you should see the server appear in the tools menu.
+
+### Option 2: Local MCP server
+
 1. Install Dependencies
 Ensure you have the required libraries installed in your environment:
 ```bash
